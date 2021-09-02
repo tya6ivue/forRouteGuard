@@ -35,10 +35,33 @@ export default {
   },
   methods: {
     RouteToSignUpPage() {
-      this.$router.push("/SignUpPage");
+      
+      const retereiveData = localStorage.getItem("LoginDatacreD");
+      
+      if(retereiveData && retereiveData.length) {
+      
+        return;
+      
+      }
+      else {
+        this.$router.push("/SignUpPage");
+
+      }
     },
     RouteToHomePage() {
-      this.$router.push("/");
+      // this.$router.push("/");
+
+      const retereiveData = localStorage.getItem("LoginDatacreD");
+  if(retereiveData && retereiveData.length) {
+      
+        return;
+      
+      }
+      else {
+        this.$router.push("/");
+
+      }
+
     },
 
     Submit() {

@@ -2,24 +2,22 @@ import HomePage from "../src/pages/HomePage";
 import SignUpPage from "../src/pages/SignUpPage";
 import LoginPage from "../src/pages/LoginPage";
 
-//  let retereiveData =  localStorage.getItem("LoginDatacreD")
+// const router = new VueRouter({ ... })
 
 function refresh(to, from, next) {
   const retereiveData = localStorage.getItem("LoginDatacreD");
 
-  console.log(retereiveData);
+  //   console.log(retereiveData,retereiveData && Object.keys(retereiveData).length);
 
-  if (retereiveData) {
-    console.log(to);
-    if (to.fullpath == "/LoginPage") {
-      console.log("matlab value hai!");
+  if (retereiveData && Object.keys(retereiveData).length) {
+    if (to.fullPath == "/LoginPage") {
+      //   console.log("matlab value hai!");
       next();
+    } else {
+      next("/LoginPage");
     }
   } else {
-    //    if(to.fullpath == "/" || to.fullpath == "/SignUpPage") {
-    //       next()
-    //    }
-    console.log("matlab value nhai hai!");
+    // console.log("matlab value nhai hai!");
     next();
   }
 }
